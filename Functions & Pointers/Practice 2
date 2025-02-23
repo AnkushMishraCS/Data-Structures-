@@ -1,0 +1,33 @@
+#include <iostream>
+using namespace std;
+
+void fibonacci(int n) {
+    int a = 0, b = 1, c;
+    int *ptr1 = &a, *ptr2 = &b, *ptr3 = &c;
+
+    cout << *ptr1 << " " << *ptr2 << " "; // Print first two terms
+
+    for (int i = 2; i < n; i++) {
+        *ptr3 = *ptr1 + *ptr2;
+        cout << *ptr3 << " ";
+        
+        // Update pointers
+        *ptr1 = *ptr2;
+        *ptr2 = *ptr3;
+    }
+    cout << endl;
+}
+
+int main() {
+    int n;
+    cout << "Enter the number of terms: ";
+    cin >> n;
+
+    if (n < 1) {
+        cout << "Please enter a valid number greater than 0.";
+    } else {
+        fibonacci(n);
+    }
+
+    return 0;
+}
